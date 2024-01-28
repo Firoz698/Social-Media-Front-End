@@ -1,0 +1,79 @@
+<div class="container">
+    <h1 class="text-center bg-info py-3">Ag Grid Practice</h1><button class="btn btn-success"
+        (click)="AddUserMethod()">Add User</button>
+    <div class="agGrid-table">
+
+
+        <ag-grid-angular class="ag-theme-quartz" style="height: 700px; width: 100%;" [rowData]="rowData"
+            (rowDoubleClicked)="RowDbblClick()" [columnDefs]="colDefs" [rowSelection]="'multiple'"
+            [defaultColDef]="defaultColDef" (rowClicked)="onSelectionChanged($event)"></ag-grid-angular>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" hidden id="ModalDI" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="was-validated">
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" required
+                            [(ngModel)]="oPractice.name" name="name">
+                        <label for="floatingInput">Your Name</label>
+                        <div class="invalid-feedback">Please fill out this Name.</div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="email" class="form-control" id="emailID" placeholder="Email Address" required
+                            [(ngModel)]="oPractice.email" name="email">
+                        <label for="emailID">Email address</label>
+                        <div class="invalid-feedback">Please fill out this Email.</div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="accoutId" placeholder="Account Number" required
+                            [(ngModel)]="oPractice.password" name="account">
+                        <label for="accoutId">Account Number</label>
+                        <div class="invalid-feedback">Please fill out this Number.</div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="contactid" placeholder="Contact Number" required
+                            [(ngModel)]="oPractice.contact" name="contact">
+                        <label for="contactid">Contact Number</label>
+                        <div class="invalid-feedback">Please fill out this Contact.</div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="addressId" placeholder="Address" required
+                            [(ngModel)]="oPractice.address" name="address">
+                        <label for="addressId">Address</label>
+                        <div class="invalid-feedback">Please fill out this Address</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="CloseId" (click)="CloseMethod()"
+                    data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" *ngIf="!IsTrue" (click)="SaveChange()">Save
+                    changes</button>
+                <button type="button" class="btn btn-primary" *ngIf="IsTrue" (click)="UpdateData()">Update User</button>
+            </div>
+        </div>
+    </div>
+</div>

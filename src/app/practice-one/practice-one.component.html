@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="button_Section">
+        <div class="row">
+            <div class="col-6 ">
+                <h1 class="text-primary d-inline-block">Exprement One</h1>
+                <input type="search" class="mx-4" placeholder="Search Value">
+            </div>
+            <div class="col-6 py-3 d-flex justify-content-end">
+                <button class="btn btn-success" (click)="OpneModal()">Add User</button>
+                <button class="btn btn-warning mx-2" (click)="EditMethod()">Edit</button>
+                <button class="btn btn-danger" (click)="DeletedMethod()">Remove</button>
+            </div>
+        </div>
+    </div>
+    <table class="table  table-bordered border-secondary table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col"> Email
+                <input type="search" class="mx-4" placeholder="Search Value" [(ngModel)]="SearchModel"></th>
+                <th scope="col">Password</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Item of DataList | pipe:SearchModel;index as i" (click)="RewMethod(Item)" [ngClass]="this.oPractice.id==Item.id? 'table-danger': ''">
+                <td>{{i+1}}</td>
+                <td>{{Item.name}}</td>
+                <td>{{Item.email}}</td>
+                <td>{{Item.password}}</td>
+                <td>{{Item.contact}}</td>
+                <td>{{Item.address}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" hidden id="ModalDI" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="was-validated">
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" required
+                            [(ngModel)]="oPractice.name" name="name">
+                        <label for="floatingInput">Your Name</label>
+                        <div class="invalid-feedback">Please fill out this Name.</div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="email" class="form-control" id="emailID" placeholder="Email Address" required
+                            [(ngModel)]="oPractice.email" name="email">
+                        <label for="emailID">Email address</label>
+                        <div class="invalid-feedback">Please fill out this Email.</div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="accoutId" placeholder="Account Number" required
+                            [(ngModel)]="oPractice.password" name="account">
+                        <label for="accoutId">Password</label>
+                        <div class="invalid-feedback">Please fill out this Number.</div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="contactid" placeholder="Contact Number" required
+                            [(ngModel)]="oPractice.contact" name="contact">
+                        <label for="contactid">Contact Number</label>
+                        <div class="invalid-feedback">Please fill out this Contact.</div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="addressId" placeholder="Address" required 
+                        [(ngModel)]="oPractice.address" name="address">
+                        <label for="addressId">Address</label>
+                        <div class="invalid-feedback">Please fill out this Address</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="CloseId" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" *ngIf="!IsTrue" (click)="SaveChangeMethod()">Save changes</button>
+                <button type="button" class="btn btn-primary" *ngIf="IsTrue" (click)="UpdateMethod()">Update User</button>
+            </div>
+        </div>
+    </div>
+</div>

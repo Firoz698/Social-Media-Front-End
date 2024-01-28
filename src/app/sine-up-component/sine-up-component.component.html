@@ -1,0 +1,36 @@
+<div class="container">
+    <h2 class="text-center py-4 bg-secondary text-white mb-5">Sine Up Component</h2>
+    <form action="" class="was-validated">
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Your Name" required
+                [(ngModel)]="oPractice.name" name="name">
+            <label for="floatingInput">Your Name</label>
+            <div class="invalid-feedback">Please fill out this Name.</div>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="email" class="form-control" id="emailID" placeholder="Email Address" required
+                [(ngModel)]="oPractice.email" name="email">
+            <label for="emailID">Email address</label>
+            <div class="invalid-feedback">Please fill out this Email.</div>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="accoutId" placeholder="Password" required
+                [(ngModel)]="oPractice.password" name="account">
+            <label for="accoutId">Password</label>
+            <div class="invalid-feedback">Please fill out this Number.</div>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="contactid" placeholder="Contact Number" required
+                [(ngModel)]="oPractice.contact" name="contact">
+            <label for="contactid">Contact Number</label>
+            <div class="invalid-feedback">Please fill out this Contact.</div>
+        </div>
+        <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="addressId" placeholder="Address" required 
+            [(ngModel)]="oPractice.address" name="address">
+            <label for="addressId">Address</label>
+            <div class="invalid-feedback">Please fill out this Address</div>
+        </div>
+        <button type="button" class="btn btn-info" (click)="PostData()" >Submit</button>
+    </form>
+</div>

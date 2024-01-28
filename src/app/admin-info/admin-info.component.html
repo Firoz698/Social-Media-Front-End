@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="mb-3">
+    <label for="formFile" class="form-label">Default file input example</label>
+    <input class="form-control" type="file" id="formFile" (change)="FielChangeMethod($event)">
+  </div>
+ 
+
+
+
+
+  <div *ngFor="let item of ListOfImage" class="col-md-3">
+    <img [src]="'data:image/jpg;base64,'+item.image" alt="Image">
+  </div>
+
+
+
+
+</div>

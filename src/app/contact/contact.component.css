@@ -1,0 +1,50 @@
+.profile_header-serction{
+    height: 900px;
+    width: 100%;
+    background-color: white;
+    z-index: -1;
+    position: relative;
+}
+.Cover_Image_Section{
+    height: 400px;
+   background-size: cover;
+}
+.profile_Photo{
+    height: 228px;
+    width: 215px;
+    z-index: 1;
+    margin-top: -97px;
+    margin-left: 561px;
+    position: static;
+}
+.blue{
+    color: #3b5998;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.TabelData{
+    height: 200px;
+    width: 100%;
+    background-color: #f7f7f7;
+    box-shadow: 0px 0px 8px grey;
+}
+.PostFont{
+    font-size: 40px;
+}
+
+.RemveStyle{
+    color: black;
+}
+.RemveStyle:hover{
+    color: red;
+}
+.PostB{
+    height: 51px;
+    width: 83px;
+    font-size: 20px;
+    /* background-color: gray; */
+    border-radius: 10px;
+    border: 1px solid;
+}

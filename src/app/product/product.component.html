@@ -1,0 +1,25 @@
+<div class="container" >
+    <div class="row">
+        <div class="col-6 p-4 border">
+            <button routerLink="Mobile">Mobile Prduct</button>
+            <button class="mx-3" routerLink="HeadPhone">Head Phone Product</button>
+            <button (click)="Navigating()">Navigating Practice One</button>
+            <h3>{{Value}}</h3>
+            <h3>{{date |date}}</h3>
+        </div>
+        <div class="col-6 border">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <div class="parctivce">
+        <h2 class="text-center p-3 bg-info" (click)="ColorChane('green')">Practice Area</h2>
+        <div class="card" style="width: 18rem;" appDirectiveOne>
+            <img src="../../assets/Error.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+    </div>
+</div>
