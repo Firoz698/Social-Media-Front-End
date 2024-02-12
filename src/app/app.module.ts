@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PracticeOneComponent } from './practice-one/practice-one.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LoginComponent } from './login/login.component';
@@ -44,7 +44,8 @@ import { ByteArrayToUrlPipe } from './byteArrayToUrl.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AgGridModule
+    AgGridModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

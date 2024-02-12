@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ExprementApiService {
+  IamTeue:boolean=true;
+
+
 
   constructor(private https: HttpClient) { }
 
@@ -24,11 +27,11 @@ PostReduest(Obje:any):Observable<any>{
   return this.https.post("https://localhost:7277/api/Communication/PostAndEdit",Obje,this.config);
 }
 PutRequest(PutObje:any):Observable<any>{
-  debugger
+
   return this.https.post("https://localhost:7277/api/Communication/PostAndEdit",PutObje,this.config);
 }
 DeletedRequest(DeleObject:any):Observable<any>{
-  debugger
+
   return this.https.delete("https://localhost:7277/api/Communication/RemoveExprement?Id="+DeleObject.id,this.config);
 }
 
@@ -37,7 +40,7 @@ LoginUser(payload:any):Observable<any>{
   return this.https.post("https://localhost:7277/api/Communication/UserLogin",payload,this.config);
 }
 GetUser(id:number):Observable<any>{
-  debugger
+
   return this.https.get<any>("https://localhost:7277/api/Communication/GetUser?id="+id,this.config);
 }
 
@@ -46,26 +49,55 @@ PostGetMethod(id:any):Observable<any>{
 }
 
 PostpostMethod(Object:any):Observable<any>{
-  debugger
+
   return this.https.post("https://localhost:7277/api/Post/PostUserpost",Object,this.config);
 }
 
 DeletedP(id:any){
-  debugger
+
   return this.https.delete("https://localhost:7277/api/Post/PostDeleted?Id="+id,this.config);
 }
 UpdateP(){
   return this.https.post("",this.config);
 }
 
-
-ImagePost(FormDat:any):Observable<any>{
+//Post Api Link Here  
+UserImagePost(FormDat:any):Observable<any>{
+  debugger
   return this.https.post("https://localhost:7277/api/Post/UploadImage",FormDat);
 }
-
-
-GetFileData():Observable<any>{
+UserGetData(id:any):Observable<any>{
   debugger
-  return this.https.get<any>("https://localhost:7277/api/Post/GetFileData",this.config);
+  return this.https.get<any>("https://localhost:7277/api/Post/GetFileData?Id="+id,this.config);
 }
+
+
+
+//Login Button Show And Close
+LoginShowMethod(){
+  this.IamTeue=false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

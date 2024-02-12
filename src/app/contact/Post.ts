@@ -1,13 +1,14 @@
-export class Post{
-    constructor(){
-        this.id=0;
-        this.UserId=0;
-        this.Title="";
-        this.Description="";
-
+export class PostClass {
+    constructor() {
+        this.Id = 0;
+        this.UserId = -1;
+        this.image = null;
+        this.Title = "";
+        this.description = "";
     }
-    id:number;
-    UserId:number;
-    Title:string;
-    Description:string;
+    Id: number;
+    UserId: number;
+    image: any;
+    Title: string;
+    description: string;
 }

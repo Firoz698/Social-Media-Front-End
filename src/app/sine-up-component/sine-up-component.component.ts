@@ -11,23 +11,26 @@ import { Router } from '@angular/router';
 })
 export class SineUpComponentComponent {
 
-  oPractice = new Practice();
 
+  oPractce = new Practice();
+  type:string="password";
+  IsText:boolean=false;
+  eyeIcom:string="fa-eye-slash";
+  
 
   @ViewChild(PracticeOneComponent) PracticeCompo! : PracticeOneComponent ;
   constructor(private MyService:ExprementApiService,private router: Router){}
 
 
+  
+    hideShow(){
+      this.IsText = !this.IsText;
+      this.IsText? this.eyeIcom= "fa fa-eye" : this.eyeIcom ="fa fa-eye-slash";
+      this.IsText? this.type = "text" : this.type="password";
+    }
+  
 
-  PostData(){
-    debugger
-    this.MyService.PostReduest(this.oPractice).subscribe(
-      (res)=>{
-        this.router.navigate(["/"])
-        console.log(res);
-      }
-    )
-  }
+
 
 
 

@@ -10,9 +10,7 @@ import { FileTable } from '../Model/FileTable';
 })
 export class AdminInfoComponent implements OnInit {
 
-  ImageOne: any;
   public ListOfImage: FileTable[] = [];
-  ImageStor:any[]=[];
 
   constructor(private services: ExprementApiService, private http: HttpClient) {}
   ngOnInit() {
@@ -20,13 +18,13 @@ export class AdminInfoComponent implements OnInit {
   }
 
   GetFileData() {
-    this.services.GetFileData().subscribe(
-      (res) => {
-        if (res != null) {
-          this.ListOfImage = res;
-        }
-      }
-    )
+    // this.services.GetFileData().subscribe(
+    //   (res) => {
+    //     if (res != null) {
+    //       this.ListOfImage = res;
+    //     }
+    //   }
+    // )
   }
 
   private COnvertByteArraytoUrl(byteArray: any): string {
@@ -46,7 +44,7 @@ export class AdminInfoComponent implements OnInit {
       const formData = new FormData();
       formData.append('file', file);
 
-      this.services.ImagePost(formData).subscribe(
+      this.services.UserImagePost(formData).subscribe(
         (res) => {
           console.log(res)
           this.GetFileData();

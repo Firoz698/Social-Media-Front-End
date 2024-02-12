@@ -1,59 +1,46 @@
-<section class="h-100 gradient-form" style="background-color: #eee;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-xl-10">
-          <div class="card rounded-3 text-black">
-            <div class="row g-0">
-              <div class="col-lg-6">
-                <div class="card-body p-md-5 mx-md-4">
-  
-                  <div class="text-center">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                      style="width: 185px;" alt="logo">
-                    <h4 class="mt-1 mb-5 pb-1">Communication Media</h4>
-                  </div>
-  
-                  <form>
-                    <p>Please login to your account</p>
-  
-                    <div class="form-outline mb-4">
-                      <input type="email" id="form2Example11" class="form-control" [(ngModel)]="oPractce.email" name="email"
-                        placeholder="Email Address" />
-                      <label class="form-label" for="form2Example11">Email</label>
-                    </div>
-  
-                    <div class="form-outline mb-4">
-                      <input type="password" placeholder="Password" id="form2Example22"[(ngModel)]="oPractce.password" name="password"
-                       class="form-control" />
-                      <label class="form-label" for="form2Example22">Password</label>
-                    </div>
-  
-                    <div class="text-center pt-1 mb-5 pb-1">
-                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" (click)="LoginMethod()" type="button">Log
-                        in</button><br>
-                      <a class="text-muted" href="#!">Forgot password?</a>
-                    </div>
-  
-                    <div class="d-flex align-items-center justify-content-center pb-4">
-                      <p class="mb-0 me-2">Don't have an account?</p>
-                      <button type="button" class="btn btn-outline-danger"  routerLink="/SineUp">Create new</button>
-                    </div>
-  
-                  </form>
-  
+<div class="outer ">
+  <div class="container ">
+    <div class="row">
+      <div class="offset-md-3 col-lg-5 col-md-7 offset-md-2">
+        <div class="panel border bg-white">
+          <div class="panel-heading">
+            <h3 class="pt-3 font-weight-bold">Login</h3>
+          </div>
+          <div class="panel-body p-4">
+            <form [formGroup]="loginFrom">
+              <div class="form-group pt-3">
+                <div class="input-field">
+                  <span class="fa fa-user p-2"></span>
+                  <input formControlName="Username" type="text" placeholder="Username" [(ngModel)]="oPractce.email" name="email">
                 </div>
               </div>
-              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                  <h4 class="mb-4">Welcome To Communication App</h4>
-                  <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <small class="text-danger" *ngIf="loginFrom.controls['Username'].dirty && loginFrom.hasError('required','Username')">*Username is required</small>
+              <div class="form-group pt-3">
+                <div class="input-field">
+                  <span class="fa fa-lock p-2"></span>
+                  <input  formControlName="password" [type]="type" placeholder="Password" [(ngModel)]="oPractce.password" name="password">
+                  <span (click)="hideShow()" class="fa {{eyeIcom}}"></span>
                 </div>
               </div>
+              <small class="text-danger" *ngIf="loginFrom.controls['password'].dirty && loginFrom.hasError('required','password')">*Username is password</small>
+              <div class="form-inline fr mt-4">
+                <a id="forget" class="font-weight-bold">Forget Password?</a>
+              </div>
+              <button type="button" [disabled]="loginFrom.invalid" class="btn btn-primary btn-block mt-4 w-100" (click)="onSubmitLogin()">Login</button>
+              <div class="text-center mt-3">Don't have account?<a id="forget" routerLink="/SineUp">Singe Up</a></div>
+            </form>
+          </div>
+          <div class="mx-3 my-2 py-2 bordert">
+            <div class="text-center py-3">
+              <a href="https://www.facebook.com" target="_blank" class="px-2"><img src="https://www.dpreview.com/files/p/articles/4698742202/facebook.jpeg" alt=""></a>
+              <a href="https://www.google.com" target="_blank" class="px-2"><img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt=""></a>
+              <a href="https://www.github.com" target="_blank" class="px-2"><img src="https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-github-icon-35.png" alt=""></a>
+              <!-- <a href="https://www.facebook.com" target="_blank" class="px-2"><img src="https://www.dpreview.com/files/p/articles/4698742202/facebook.jpeg" alt=""></a> -->
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
+
